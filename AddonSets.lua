@@ -14,8 +14,7 @@ local function GetActiveAddons()
     local activeAddons = {}
     for i = 1, C_AddOns.GetNumAddOns() do
         local name = C_AddOns.GetAddOnInfo(i)
-        if C_AddOns.GetAddOnEnableState(i, UnitName("player")) >
-            Enum.AddOnEnableState.None then
+        if C_AddOns.GetAddOnEnableState(i) == 2 then
             table.insert(activeAddons, name)
         end
     end
@@ -52,12 +51,7 @@ local function LoadAddonSet(index)
 
     C_AddOns.DisableAllAddOns(UnitName("player"))
     for _, addonName in ipairs(addonSets[index]) do
-        for i = 1, C_AddOns.GetNumAddOns() do
-            if C_AddOns.GetAddOnInfo(i) == addonName then
-                C_AddOns.EnableAddOn(i, UnitName("player"))
-                break
-            end
-        end
+        C_AddOns.EnableAddOn(addonName)
     end
     AddonList_Update()
 end
@@ -156,8 +150,6 @@ local function OnAddonLoaded(self, event, addonName)
         if AddonList.DisableAllButton then
             AddonList.DisableAllButton:Hide()
         end
-
-        LoadAddonSet(selectedSet)
     end
 end
 
