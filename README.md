@@ -4,6 +4,10 @@
 
 Whether you have different addon configurations for raiding, PvP, or questing, **Addon Sets** makes it simple to save, load, rename, and delete your addon sets.
 
+## Download
+
+You can get the addon on [CurseForge](https://www.curseforge.com/wow/addons/addon-sets).
+
 ## Features
 
 *   **User-Friendly Interface**: Easy-to-use dropdown menu integrated into the Blizzard Addon List to quickly swith between addon sets.
