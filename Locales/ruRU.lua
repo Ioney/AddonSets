@@ -1,17 +1,17 @@
 local L = LibStub("AceLocale-3.0"):NewLocale("AddonSets", "ruRU")
 
 if L then
-    L["AddonSets"] = nil
-    L["NewSetName"] = nil
-    L["Set"] = nil
-    L["OK"] = nil
-    L["Cancel"] = nil
-    L["Save"] = nil
-    L["Delete"] = nil
-    L["Rename"] = nil
-    L["EnableAll"] = nil
-    L["DisableAll"] = nil
-    L["ConfirmDeleteSet"] = nil
-    L["Yes"] = nil
-    L["No"] = nil
+    L["AddonSets"] = "Наборы аддонов"
+    L["NewSetName"] = "Введите новое название для набора аддонов:"
+    L["Set"] = "Набор"
+    L["OK"] = "ОК"
+    L["Cancel"] = "Отмена"
+    L["Save"] = "Сохранить"
+    L["Delete"] = "Удалить"
+    L["Rename"] = "Переименовать"
+    L["EnableAll"] = "Включить все"
+    L["DisableAll"] = "Отключить все"
+    L["ConfirmDeleteSet"] = "Вы уверены, что хотите удалить этот набор аддонов?"
+    L["Yes"] = "Да"
+    L["No"] = "Нет"
 end
