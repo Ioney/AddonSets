@@ -6,6 +6,7 @@ addonSetsDropdown:SetDefaultText(L["AddonSets"])
 addonSetsDropdown:SetPoint("BOTTOMLEFT", AddonList, "BOTTOMLEFT", 10, -1)
 addonSetsDropdown:SetSize(150, 30)
 
+local character = UnitName("player")
 local selectedSet = 1
 local addonSets = {}
 local addonSetNames = {}
@@ -14,7 +15,7 @@ local function GetActiveAddons()
     local activeAddons = {}
     for i = 1, C_AddOns.GetNumAddOns() do
         local name = C_AddOns.GetAddOnInfo(i)
-        if C_AddOns.GetAddOnEnableState(i) == 2 then
+        if C_AddOns.GetAddOnEnableState(i, character) > 0 then
             table.insert(activeAddons, name)
         end
     end
@@ -49,10 +50,12 @@ end
 local function LoadAddonSet(index)
     if not addonSets[index] then return end
 
-    C_AddOns.DisableAllAddOns(UnitName("player"))
+    C_AddOns.DisableAllAddOns(character)
+
     for _, addonName in ipairs(addonSets[index]) do
-        C_AddOns.EnableAddOn(addonName)
+        C_AddOns.EnableAddOn(addonName, character)
     end
+
     AddonList_Update()
 end
 
@@ -120,14 +123,14 @@ local function GenerateDropdownMenu(dropdown, rootDescription)
     rootDescription:CreateDivider()
 
     rootDescription:CreateButton(L["EnableAll"], function()
-        C_AddOns.EnableAllAddOns(UnitName("player"))
+        C_AddOns.EnableAllAddOns(character)
         AddonList_Update()
     end)
 
     rootDescription:CreateButton(L["DisableAll"], function()
         for i = 1, C_AddOns.GetNumAddOns() do
             if C_AddOns.GetAddOnInfo(i) ~= "AddonSets" then
-                C_AddOns.DisableAddOn(i, UnitName("player"))
+                C_AddOns.DisableAddOn(i, character)
             end
         end
         AddonList_Update()

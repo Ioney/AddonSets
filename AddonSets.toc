@@ -2,7 +2,7 @@
 ## Title: AddonSets
 ## Notes: Manage sets of addons
 ## Author: Ioney
-## Version: 1.0.0
+## Version: 1.0.3
 ## OptionalDeps: Ace3
 ## X-Embeds: Ace3
 ## SavedVariables: AddonSetsDB
